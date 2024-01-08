@@ -1,0 +1,59 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Open API  Point oF Sales remake",
+        "summary": "Remake Point Of sales",
+        "description": "Ini adalah aplikasi point of sales versi remake dari yang pertama",
+        "termsOfService": "https://example.com/terms/",
+        "contact": {
+            "name": "Arip Budiman",
+            "url": "https://aripbudiman.com",
+            "email": "muhamadarifbudiman22@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.1"
+    },
+    "servers": [
+        {
+            "url": "http://pointofsales.test/api",
+            "description": "Development"
+        },
+        {
+            "url": "http://pointofsales.test/api",
+            "description": "Staging"
+        },
+        {
+            "url": "http://pointofsales.test/api",
+            "description": "Production"
+        }
+    ],
+    "paths": {
+        "/login": {
+            "post": {
+                "summary": "Login",
+                "description": "Login",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+}
