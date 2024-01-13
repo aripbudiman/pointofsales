@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\CustomerController;
+use App\Http\Controllers\API\EmployeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +30,11 @@ Route::group([
     Route::post('me', [AuthController::class, 'me']);
 });
 
-Route::get('users', [AuthController::class, 'user']);
+Route::middleware('auth:api')->group(function(){
+    Route::get('users', [AuthController::class, 'user']);
+    Route::get('employee',[EmployeeController::class, 'getAllEmployee']);
+    Route::get('customer',[CustomerController::class,'index']);
+    Route::post('customer',[CustomerController::class,'store']);
+    Route::get('customer/{customer}',[CustomerController::class,'show']);
+    Route::put('customer/{customer}',[CustomerController::class,'update']);
+});
